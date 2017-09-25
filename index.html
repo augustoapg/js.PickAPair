@@ -1,0 +1,62 @@
+<!--
+Name:  Augusto Araujo Peres Goncalez
+Program: Computer Systems Technology – Systems Analyst
+Assignment:  Assignment 4
+Date:  06/13/17
+
+App Description: This is a webpage that allows the user to play the game
+    Pick-A-Pair and choosing between three sizes of board
+Page Description: the page that contains the content for the game
+Files: pick.css - the page that contains the styles for the web site
+       pick.js - the Javascript functions and constants for the game
+-->
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Pick-A-Pair: Augusto Goncalez</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link type="text/css" rel="stylesheet" href="css/pick.css">
+        <script type="text/javascript" src="scripts/pick.js"></script>
+    </head>
+    <body>
+        <!-- Don't forget to:
+        1. Link to your JS in the HEAD section.
+        2. Link to the stylesheet.  
+        3. Edit the TITTLE of the document (see assignment specification).
+        4. Put your first & last name in the FOOTER. -->
+        <header><h1>Pick-A-Pair</h1></header>
+        
+        <!-- div that contains buttons for choosing the size of the board
+        Each button contain an id which last digit is to be used on the js 
+        to get the size of the board -->
+        <div id="size">
+            <h3>Choose board size</h3>
+            <button id="size2">2 x 2</button>
+            <button id="size4">4 x 4</button>
+            <button id="size6">6 x 6</button>
+        </div>
+
+        <div>
+            <div id="message">
+                <p>GAME OVER!</p>
+                <h3 id="winner"></h3>
+                <p>&mdash;click anywhere in the box to 
+                    dismiss this message&mdash;</p>
+            </div>
+            <div id="overlay"></div>
+
+            <table id="board"></table>
+            <button id="restart">Play again!</button>
+            <div class="gameTicker">Game Timer: 
+                <span id="ticker">00:00</span>
+            </div>
+        </div>
+
+        <footer>
+            <address>Augusto A. P. Goncalez @ SYST10199 Web Programming, 
+                Sheridan College</address></footer> 
+    </body>
+</html>

@@ -1,0 +1,121 @@
+/*
+    Name: Augusto Araujo Peres Goncalez
+    Program: Computer Systems Technology – Systems Analyst
+    Assignment: Assignment 4
+    Date: 06/13/17
+
+    Description: This is the page that contains the styles for the web site
+    Files: index.html - the page that contains the content of the game
+    pick.js - the Javascript functions and constants for the game
+*/
+
+/* pick.css */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 14pt;
+}
+
+
+h1 {
+    color: #00b2ce;
+    font-size: 4em;
+    margin: .2em 0;
+    text-align: center;
+    text-shadow: 1px 1px 1px #eee, 2px 2px 6px #999;
+}
+
+.gameTicker {
+    background-color: #e6fcff;
+    border: 2px dashed #00b2ce;
+    margin: 5px auto;
+    padding: 10px;
+    text-align: center;
+}
+
+.gameTicker span {
+    font-weight: bold;
+}
+
+table, tr {
+    margin: auto;
+    text-align: center;
+    border-collapse: collapse; 
+    padding: 0;
+
+}
+td {
+    width: 75px;
+    height: 72px;
+    padding: 0 3px;
+    margin: 0;  
+    background-color: transparent;  
+}
+img {
+    width: 100%;
+    height: 100%;
+    border: 1px solid orange;
+    box-shadow: 1px 1px 2px white, 2px 2px 5px black;
+    background-color: white;
+}
+
+footer {
+    background-color: aliceblue;
+    border: 1px solid darkslategrey;
+    border-radius: 5px;
+    box-shadow: 3px 3px 1px #999;
+    font-weight: bold;
+    margin: 10px auto; 
+    padding: 15px;       
+}
+
+/* the message box that appears with game results, hidden by default */
+#message {
+    background-color: #f9ecf2;
+    border: 1px solid #660066;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px black, -1px -1px 5px white;
+    display: none;
+    font-weight: bold;
+    height: 30%;
+    left: 100px;
+    margin: 0 auto;
+    padding: 20px;
+    position: absolute;
+    top: 100px;
+    width: 50%;
+    z-index: 200;
+}
+
+/* covers the entire page in a semi-transparent grey, hidden by default */
+#overlay {
+    background-color: rgba(20, 20, 20, 0.4);
+    display: none;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+/* the play again button that is hidden by default */
+#restart {
+    display: none; /* hiddes image */
+    height: 60px;
+    margin: auto; /* to display on center */
+    width: 120px;
+}
+
+/* div that contains the buttons for the user to choose the size of the board */
+#size {
+    display: none; /* hidden by default */
+    margin: 50px auto; /* to display on center and with some vertical margin */
+    text-align: center; /* to display buttons on the center */
+}
+
+/* size of the buttons for chosing size of the board */
+#size button {
+    height: 60px;
+    font-size: 25px;
+    width: 120px;
+}
