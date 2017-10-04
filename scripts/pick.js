@@ -1,9 +1,7 @@
 /*
  Name:  Augusto Araujo Peres Goncalez
- Program: Computer Systems Technology – Systems Analyst
- Assignment:  Assignment 4
+ Project Name: PickAPair
  Date:  06/13/17
- pick.js
  
  Page Description: this is the page that contains all the functionality for the
  game, due to the Javascript functions and constants contained on it
@@ -16,24 +14,6 @@
  * @author Augusto Araujo Peres Goncalez
  */
 
-
-/** !!!  READ ME !!!
- *  For the purpose of clarity, "image" will refer to an image element,
- *  (e.g <img>) and "picture" will refer to a picture (e.g. a cow, or a .gif or
- *  .png) that is shown on the UI.
- * 
- *  Make sure you read all the docs.  Most of them contain explanations to
- *  help you understand how to complete other parts of the code.
- *  You shouldn't need to add any other variables or other objects/elements.
- * 
- *  YOU DO NOT HAVE TO DO THE TODO TASKS IN ORDER
- * 
- *  LEAVE ALL COMMENTS IN SO I CAN FIND THE PARTS TO MARK QUICKLY!!!!!
- */
-
-/** TODO 1: Write the statement that executes the init() function when the 
- * document loads.  (2 marks)
- */
 document.addEventListener("DOMContentLoaded", boardSize);
 
 // The pictureMap array maps the pictures to each cell on the board: 
@@ -113,22 +93,7 @@ function init() {
         matchedImgs[i] = false;
     }
 
-    /** TODO 2: Add the images to the board:
-     * There are 6 rows.
-     * Each row has 6 table cells.
-     * Each cell has an image that shows the "back" of the game cards.
-     * The image's id should be set to "imgX" where X is an index
-     *  from 0 to 35 (1st row/1st col is 0, 1st row/2nd col is 1, 1st
-     *   row/3rd col is 2... 2nd row/1st col is 6, 2nd row/2nd col is 7,
-     *   etc.)
-     * The image's source should be image0.png, which is the "back" of each image.
-     * Each image should be registered to execute the showPicture() function when
-     *   clicked (the clicked image is passed into the showPicture() function).
-     * (10 marks)
-     */
-
     // creates 6 rows 
-
     board = document.getElementById("board");
     var imgId = 0; // to assign the correct ids to the images
 
@@ -158,22 +123,9 @@ function init() {
         }
     }
 
-
-
-
-    /** TODO 3: Start the game timer:  every second, the timeGame() function
-     *  should execute, which causes the ticker on the page to increase.
-     * (2.5 marks)
-     */
-
     // execute timeGame every second
     timer = window.setInterval(timeGame, 1000);
 
-
-    /** TODO 4: Register the "message" dialog with a click event handler: when
-     *  clicked, the showDialog(false) function should execute.
-     *  (3.5 marks)
-     */
     document.getElementById("message").
             addEventListener("click", function () {
                 showDialog(false); // needs to pass value to showDialog
@@ -196,10 +148,6 @@ function showPicture(img) {
     // matched
     if (okToClick && !matchedImgs[index]) {
 
-        /** TODO 5: Change the image's source to the hidden picture associated
-         *  with it (use the pictureMap() array)
-         * (2 marks)
-         */
         img.src = "images/image" + pictureMap[index] + ".png";
 
 
@@ -209,49 +157,18 @@ function showPicture(img) {
 
         // if this is the first image click
         if (clickNum === 0) {
-
-            /**
-             * TODO 6: Mark this image as having been clicked: we need to add it to
-             * the clickedImgs array.  Also, set clickNum to 1 so that we
-             * are ready when the user clicks the second image in the pair.
-             * (2 marks)
-             */
             clickedImgs[0] = img;
             clickNum = 1;
         }
 
-        // NOTE: Added this contition so that the user cannot click on the same
+        // NOTE: Added this condition so that the user cannot click on the same
         // image twice and count as a match
-        // 
+        
         // this is the second image click
         else if (index !== clickedImgs[0].id.substring(3)) {
 
-            /**
-             * TODO 7: Mark this image as also having been clicked (add it to the 
-             *     clickedImgs array).
-             * (1 mark)
-             */
             clickedImgs[1] = img; // add second img to second position on array
             numMoves++; // increase num of moves made
-
-
-            /** TODO 8: If the two clickedImgs are referencing the same picture
-             *  file, they are a match:  
-             *   - mark these images as matched by updating their boolean value 
-             *     to true in the matchedImgs array.
-             *   - increment the number of matches made so far
-             *   - set a timer to invoke the flip() method in 100 milliseconds
-             *     (a one-time event, not a recurring timer event)
-             * Otherwise, if the images are not a match, execute the flip()
-             * method in 2 seconds (a one-time event, not a recurring timer 
-             * event)
-             * 
-             * (Tip: there's more than one way to check if they are the same
-             * picture: you could check the source file or you could check the
-             * pictureMap[] elements, or perhaps you might think of something 
-             * else.
-             * (8 marks)
-             */
 
             // If both pictures clicked are the same (same source)
             if (clickedImgs[0].src === clickedImgs[1].src) {
@@ -285,10 +202,6 @@ function showPicture(img) {
 // see if the game is finished.
 function flip() {
 
-    /** TODO 9: If the clickedImages aren't the same,
-     *  show the image0.png card back. 
-     * (3 marks)
-     */
     if (clickedImgs[0].src !== clickedImgs[1].src) {
         clickedImgs[0].src = "images/image0.png";
         clickedImgs[1].src = "images/image0.png";
@@ -296,19 +209,6 @@ function flip() {
 
     // it's ok to click again
     okToClick = true;
-
-    /** TODO 10: If we've reached 18 matches, the game is finished.
-     *  - display "Good Game! You finished in " followed by the elapsed time
-     *      - this should all go in the "winner" heading on the message dialog
-     *      - (tip: use the contents of the "ticker" element on the page
-     *        to get the elapsed time in mm:ss)
-     *  
-     *  - invoke the showDialog(true) function to show the message dialog
-     *  - stop the game timer
-     *  - since the game is done, the user should not be allowed to click
-     *    anymore images
-     * (6 marks)
-     */
 
     // if game has been won
 
@@ -368,16 +268,6 @@ function restart(button) {
     document.getElementById("ticker").innerHTML = "0:00";
     boardSize(); // restart game
 }
-
-
-/*
- * Possible enhancements:
- * - keep track of # of moves (clicking 2 images is one move) it took to finish
- * - add a Restart button that appears at the end of the game (it should
- *     not appear while game is being played) so the user can play again
- *     without reloading the page
- * - allow the user to choose a board size (e.g. 4x4, 6x6, 8x8, 10x10, etc)
- */
 
 // Executes once per second: updates the ticker on the page
 // with the current time elapsed.
